@@ -8,24 +8,19 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import { useGlobal } from 'reactn';
 
 import {BootLogEvents} from "./BootLogEvents";
+import {BootAtButton} from "./BootAtButton";
 import BootLogStaticDataSource from './Final-Report.json'
 import AppStore from "./AppStore";
 
 import {EventIcon} from "./EventIcon"
 import classNames from "classnames"
+import {LOG} from "./AppUtils"
 
 
 
 import './BootLog.css';
 const $ = window.$;
 
-class LOG {
-    static toConsole = function(caption, obj) {
-        console.log(`🡦 ${caption} 🡧`);
-        console.log(obj);
-        console.log('\r\n');
-    }
-}
 
 export class BootLogRoot extends Component {
 
@@ -34,7 +29,9 @@ export class BootLogRoot extends Component {
     constructor(props) {
         super(props);
         var boots = BootLogStaticDataSource.Boots;
-        
+
+        this.selectBootAt = this.selectBootAt.bind(this);
+
         console.log('type of boots: ' + (typeof boots));
         console.log('boots[] length: ' + (boots.length));
         console.log(boots);
@@ -71,7 +68,6 @@ export class BootLogRoot extends Component {
             });
         });
 
-        this.incrementCounter = this.incrementCounter.bind(this);
         this.state = {
             boots: boots, 
             selectedKey: '', 
@@ -143,21 +139,15 @@ export class BootLogRoot extends Component {
 
         return (
             <div style={{marginTop: "20px"}}>
-
                 <div style={{display: "flex", border: "1px solid transparent"}}>
                     <div className="chooseBootAt" style={{display: "block"}}>
                         {this.state.boots.map(boot =>
-                            <Button
-                                color={boot.IsOk ? 'primary' : 'secondary'}
-                                variant={boot.IsOk ? 'outlined' : 'outlined'}
+                            <BootAtButton
+                                onClick={() => { this.selectBootAt(boot.UniqueKey) }}
+                                bootAt={boot}
+                                isSelected={this.state.selectedKey === boot.UnqiueKey}
                                 style={{display: "block"}}
-                                onClick={() => { this.selectBootAt(boot.UniqueKey) }}>
-                                <div className={classNames('MainCell', boot.HasErrors ? "BootError" : "BootOk")}>
-                                    <div className={boot.IsOk ? "MainCell-OK" : "MainCell-ErrorCounter"}>{boot.IsOk ? "OK" : ('' + boot.TotalErrors)}</div>
-                                    <div className="MainCell-Date">{boot.DateField}</div>
-                                    <div className="MainCell-Time">{boot.TimeField}</div>
-                                </div>
-                            </Button>
+                            />
                         )}
                         <input type="button" value="classic" className="Hidden"/>
                     </div>

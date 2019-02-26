@@ -8,6 +8,9 @@ call npm run build
 pushd build
 del ..\bin\devizer.github.io.zip
 "C:\Program Files\7-Zip\7z" a ..\bin\devizer.github.io.zip 
+rd /q /s ..\..\..\..\docs\static 1>nul 2>&1
+xcopy /y /E /R *.* ..\..\..\..\docs
+
 popd
 
 title [2/2] Build for localhost

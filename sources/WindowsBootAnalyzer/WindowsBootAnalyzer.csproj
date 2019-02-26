@@ -19,6 +19,8 @@
     <ItemGroup>
         <!-- Don't publish the SPA source files, but do show them in the project files list -->
         <Content Remove="$(SpaRoot)**" />
+        <Content Include="ClientApp\src\components\AppUtils.js" />
+        <Content Include="ClientApp\src\components\BootAtButton.js" />
         <Content Include="ClientApp\src\components\ErrorsOnlyActions.js" />
         <Content Include="ClientApp\src\components\ErrorsOnlyDispatcher.js" />
         <Content Include="ClientApp\src\components\AppStore.js" />

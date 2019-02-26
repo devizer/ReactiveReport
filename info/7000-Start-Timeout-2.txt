@@ -1,0 +1,36 @@
+Log Name:      System
+Source:        Service Control Manager
+Date:          2/16/2019 12:49:39 AM
+Event ID:      7000
+Task Category: None
+Level:         Error
+Keywords:      Classic
+User:          N/A
+Computer:      SERVER2019STD
+Description:
+The Docker service failed to start due to the following error: 
+The service did not respond to the start or control request in a timely fashion.
+Event Xml:
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Service Control Manager" Guid="{555908d1-a6d7-4695-8e1e-26931d2012f4}" EventSourceName="Service Control Manager" />
+    <EventID Qualifiers="49152">7000</EventID>
+    <Version>0</Version>
+    <Level>2</Level>
+    <Task>0</Task>
+    <Opcode>0</Opcode>
+    <Keywords>0x8080000000000000</Keywords>
+    <TimeCreated SystemTime="2019-02-15T22:49:39.539626800Z" />
+    <EventRecordID>11293</EventRecordID>
+    <Correlation />
+    <Execution ProcessID="636" ThreadID="2264" />
+    <Channel>System</Channel>
+    <Computer>SERVER2019STD</Computer>
+    <Security />
+  </System>
+  <EventData>
+    <Data Name="param1">Docker</Data>
+    <Data Name="param2">%%1053</Data>
+    <Binary>44006F0063006B00650072000000</Binary>
+  </EventData>
+</Event>
