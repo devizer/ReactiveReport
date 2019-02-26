@@ -1,5 +1,7 @@
 set -e
-work=/ssd/builds/ReactiveReport
+work=$HOME
+if [ -d "/ssd" ]; then work=/ssd; fi;
+work=$work/builds/ReactiveReport
 pushd $HOME
 rm -rf $work >/dev/null 2>&1 || true
 mkdir -p $(dirname $work)
