@@ -14,19 +14,18 @@ xcopy /y /E /R *.* ..\..\..\..\docs
 popd
 
 title [2/2] Build for localhost
-set WebPackHomePage=http://localhost
+set WebPackHomePage=http://ReactiveReport.local
 type apply-homepage.ps1 | powershell -command -
 
 call npm run build
 pushd build
 del ..\bin\localhost.zip 
-"C:\Program Files\7-Zip\7z" a ..\bin\localhost.zip 
-set LOCAL_WEB=C:\inetpub\wwwroot
+"C:\Program Files\7-Zip\7z" a ..\bin\localhost.zip
+set LOCAL_WEB=C:\inetpub\ReactiveReport
 rd /q /s %LOCAL_WEB%\static 1>nul 2>&1
 xcopy /y /E /R *.* %LOCAL_WEB%
 
 popd
-
 
 
 set WebPackHomePage=.

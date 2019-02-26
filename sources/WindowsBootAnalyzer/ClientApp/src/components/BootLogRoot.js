@@ -80,6 +80,12 @@ export class BootLogRoot extends Component {
     componentDidMount() {
         AppStore.on('storeUpdated', this.updateErrorsOnly);
         console.log("componentDidMount()");
+        
+        if (this.state.boots.length > 0)
+        {
+            let selectedKey = this.state.boots[0].UniqueKey;
+            this.selectBootAt(selectedKey);
+        }
     }
     
     updateErrorsOnly = () => {
