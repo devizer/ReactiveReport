@@ -25,10 +25,24 @@
         <Content Include="ClientApp\src\components\EventIcon.js" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+        <None Remove="ClientApp\build\**" />
+        <Content Remove="ClientApp\build\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="ClientApp\src\shared" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <DistFiles Remove="ClientApp\build\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="ClientApp\build\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="ClientApp\build\**" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
