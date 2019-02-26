@@ -16,6 +16,18 @@ export class BootAtButton extends Component {
 
     static displayName = BootAtButton.name;
 
+    static themeOk = createMuiTheme({
+        palette: {
+            primary: green,
+        },
+    });
+
+    static themeError = createMuiTheme({
+        palette: {
+            primary: red,
+        },
+    });
+
     constructor(props) {
         super(props);
         LOG.toConsole("Properties of the BootAtButton", props);
@@ -23,26 +35,16 @@ export class BootAtButton extends Component {
     
     render() {
         let boot = this.props.bootAt;
-
-        const themeOk = createMuiTheme({
-            palette: {
-                primary: green,
-            },
-        });
-
-        const themeError = createMuiTheme({
-            palette: {
-                primary: red,
-            },
-        });
+        let theme = boot.IsOk ? BootAtButton.themeOk : BootAtButton.themeError;
 
         return (
-            <MuiThemeProvider theme={boot.IsOk ? themeOk : themeError}>
+            <MuiThemeProvider theme={theme}>
             <Button
                 onClick={() => this.props.onClick()}
                 color={'primary'}
                 variant={'outlined'}
                 style={this.props.style}
+                className={classNames(this.props.isSelected ? "BootAtSelected" : "BootAtNonSelected")}
                 >
                 <div className={classNames('MainCell', boot.HasErrors ? "BootError" : "BootOk")}>
                     <div className={boot.IsOk ? "MainCell-OK" : "MainCell-ErrorCounter"}>{boot.IsOk ? "OK" : ('' + boot.TotalErrors)}</div>

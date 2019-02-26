@@ -106,14 +106,24 @@
   border: none;
 }
 
-.chooseBootAt button { 
-  border: none !important;
-  outline: none !important;
+.chooseBootAt button {
+/*  border: 1px solid transparent !important;
+  outline: 1px solid transparent !important; */
+}
+
+.chooseBootAt .BootAtSelected {
+  /* border: 1px dotted lightgrey !important; */
+  outline: 1px dotted transparent !important; 
+}
+
+.chooseBootAt .BootAtNonSelected {
+  border: 1px dotted transparent !important;
+  outline: 1px dotted transparent !important;
 }
 
 .chooseBootAt button:active, .chooseBootAt button:focus {
-  border: none !important;
-  outline: none !important;
+  /* border: none !important;
+  outline: none !important; */
 }
 
 

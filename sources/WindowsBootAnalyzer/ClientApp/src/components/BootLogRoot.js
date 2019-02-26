@@ -145,7 +145,7 @@ export class BootLogRoot extends Component {
                             <BootAtButton
                                 onClick={() => { this.selectBootAt(boot.UniqueKey) }}
                                 bootAt={boot}
-                                isSelected={this.state.selectedKey === boot.UnqiueKey}
+                                isSelected={this.state.selectedKey === boot.UniqueKey}
                                 style={{display: "block"}}
                             />
                         )}
