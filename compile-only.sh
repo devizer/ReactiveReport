@@ -2,6 +2,7 @@ set -e
 work=/ssd/builds/ReactiveReport
 pushd $HOME
 rm -rf $work >/dev/null 2>&1 || true
+mkdir -p $(dirname $work)
 cd $(dirname $work)
 git clone https://github.com/devizer/ReactiveReport
 cd ReactiveReport/sources

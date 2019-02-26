@@ -96,13 +96,14 @@ namespace WindowsBootInfo
                 value = ToDateTime(dmtfDate);
                 return true;
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException)
             {
                 value = DateTime.MinValue;
                 return false;
             }
         }
 
+        
         internal static DateTime ToDateTime(string dmtfDate)
         {
             DateTime minValue = DateTime.MinValue;
@@ -160,6 +161,8 @@ namespace WindowsBootInfo
         label_24:
             dateTime = new DateTime(year, month, day, hour, minute, second, 0);
             DateTime time = dateTime.AddTicks(num1);
+            // Linked to a .NET Framework 4.0 project 
+            # pragma warning disable CS0618
             long num2 = TimeZone.CurrentTimeZone.GetUtcOffset(time).Ticks / 600000000L;
             if (str.Substring(22, 3) != "******")
             {

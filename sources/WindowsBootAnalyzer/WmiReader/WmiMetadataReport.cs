@@ -43,21 +43,6 @@ namespace WindowsBootAnalyzer.WmiReader
 
         void CleanUp()
         {
-            for (int i = 0; i < 2; i++)
-            {
-                try
-                {
-                    break;
-                    if (Directory.Exists(DirName))
-                        Directory.Delete(DirName, recursive: true);
-
-                    break;
-                }
-                catch
-                {
-                }
-            }
-
             try
             {
                 Directory.CreateDirectory(DirName);
@@ -95,7 +80,6 @@ namespace WindowsBootAnalyzer.WmiReader
             {
                 using (ManagementObjectSearcher managementObjectSearcher = new ManagementObjectSearcher(query))
                 {
-                    string[] propertyNames = null;
                     List<dynamic> properties = new List<dynamic>();
                     dynamic firstRow = new ExpandoObject();
                     foreach (ManagementBaseObject wmiRow in managementObjectSearcher.Get())
