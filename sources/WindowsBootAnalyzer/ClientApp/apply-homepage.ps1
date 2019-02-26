@@ -1,3 +1,4 @@
+#!/usr/bin/env pwsh
 $pack = (Get-Content "package.json" | ConvertFrom-Json)
 $homepage=$Env:WebPackHomePage;
 if (-not $homepage) { $homepage=$null; }
