@@ -17,6 +17,11 @@ import * as ErrorsOnlyActions from "./ErrorsOnlyActions";
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+
+
 const styles = {
     root: {
         flexGrow: 1,
@@ -71,6 +76,10 @@ class NavMenu1 extends Component {
         this.setState({ hintVisible: true });
     };
     
+    gotoGithub() {
+        window.location = "https://github.com/devizer/ReactiveReport/tree/master/sources/WindowsBootAnalyzer/ClientApp/src/components";
+    }
+    
 
     render () {
         
@@ -85,6 +94,9 @@ class NavMenu1 extends Component {
 
                 <AppBar position="static">
                     <Toolbar>
+                        <IconButton onClick={() => this.gotoGithub()} className={classes.menuButton} color="inherit" aria-label="Menu">
+                            <FontAwesomeIcon icon={faGithub} />
+                        </IconButton>
                         <Typography variant="h6" color="inherit" style={{flexGrow: 10}}>
                             Reactive Material Report
                         </Typography>
