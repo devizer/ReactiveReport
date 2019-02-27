@@ -23,7 +23,7 @@
         <Content Include="ClientApp\src\components\BootAtButton.js" />
         <Content Include="ClientApp\src\components\ErrorsOnlyActions.js" />
         <Content Include="ClientApp\src\components\ErrorsOnlyDispatcher.js" />
-        <Content Include="ClientApp\src\components\AppStore.js" />
+        <Content Include="ClientApp\src\components\ErrorsOnlyStore.js" />
         <Content Include="ClientApp\src\components\EventIcon.js" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />

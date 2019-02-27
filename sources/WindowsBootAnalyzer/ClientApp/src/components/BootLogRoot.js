@@ -1,22 +1,12 @@
 import React, { Component } from 'react';
-import Moment from 'react-moment';
 import MomentFormat from 'moment';
-import ReactDOM from 'react-dom';
-import JqxDataTable from '../jqwidgets-react/react_jqxdatatable.js';
-import Button from '@material-ui/core/Button';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import { useGlobal } from 'reactn';
-
-import {BootLogEvents} from "./BootLogEvents";
-import {BootAtButton} from "./BootAtButton";
-import BootLogStaticDataSource from './Final-Report.json'
-import AppStore from "./AppStore";
-
 import {EventIcon} from "./EventIcon"
 import classNames from "classnames"
+
+import {BootAtButton} from "./BootAtButton";
+import BootLogStaticDataSource from './Final-Report.json'
+import ErrorsOnlyStore from "./ErrorsOnlyStore";
 import {LOG} from "./AppUtils"
-
-
 
 import './BootLog.css';
 const $ = window.$;
@@ -72,13 +62,13 @@ export class BootLogRoot extends Component {
             boots: boots, 
             selectedKey: '', 
             logEvents: [],
-            errorsOnly: AppStore.getErrorsOnly()
+            errorsOnly: ErrorsOnlyStore.getErrorsOnly()
         };
 
     }
     
     componentDidMount() {
-        AppStore.on('storeUpdated', this.updateErrorsOnly);
+        ErrorsOnlyStore.on('storeUpdated', this.updateErrorsOnly);
         console.log("componentDidMount()");
         
         if (this.state.boots.length > 0)
@@ -89,8 +79,8 @@ export class BootLogRoot extends Component {
     }
     
     updateErrorsOnly = () => {
-        this.setState({errorsOnly: AppStore.getErrorsOnly()});
-        console.log(`Change-Errors-Only event recieved: ${AppStore.getErrorsOnly()}`);
+        this.setState({errorsOnly: ErrorsOnlyStore.getErrorsOnly()});
+        console.log(`Change-Errors-Only event recieved: ${ErrorsOnlyStore.getErrorsOnly()}`);
     };
 
     selectBootAt(uniqueKey) {
