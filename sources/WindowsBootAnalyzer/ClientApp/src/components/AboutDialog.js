@@ -131,7 +131,7 @@ export class AppAboutDialog extends React.Component {
                     <DialogContent>
                         <Typography gutterBottom>
                             It's .NET Core app for troubleshooting crashes and fails of windows services using Material&nbsp;UI with React.
-                            Please don't take it  too seriously.
+                            Please don't take my playground with Material UI framework too seriously.
                         </Typography>
                         <Typography gutterBottom>
                             <div style={dd.infoItem}>&nbsp;
