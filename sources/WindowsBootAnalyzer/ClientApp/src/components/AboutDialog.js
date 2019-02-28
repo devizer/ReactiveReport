@@ -79,6 +79,8 @@ export class CustomizedDialogDemo extends React.Component {
 
     handleClose = () => {
         this.setState({ open: false });
+        if (this.props.onClose)
+            this.props.onClose();
     };
 
     gotoGithub() {

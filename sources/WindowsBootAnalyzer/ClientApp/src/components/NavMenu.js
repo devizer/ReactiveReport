@@ -61,9 +61,6 @@ class NavMenu1 extends Component {
         this.closeHint = this.closeHint.bind(this);
     }
 
-    componentDidMount() {
-    }
-
     closeHint(event, reason) {
         if (reason === 'clickaway') {
             return;
@@ -71,6 +68,10 @@ class NavMenu1 extends Component {
 
         this.setState({ hintVisible: false });
     };
+    
+    closeAbout = () => {
+        this.setState({aboutOpened: false});
+    }
 
     handleChange = name => event => {
         let newValue = event.target.checked;
@@ -149,7 +150,7 @@ class NavMenu1 extends Component {
                     </Toolbar>
                 </AppBar>
 
-                <CustomizedDialogDemo open={this.state.aboutOpened} />
+                <CustomizedDialogDemo open={this.state.aboutOpened} onClose={() => this.closeAbout()}/>
                 
             </div>
                 
