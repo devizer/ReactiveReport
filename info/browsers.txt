@@ -1,3 +1,3 @@
-Android 4.4.4, Chrome 33: Doesnt work
-Android 5.1 RC1, Chrome 39. Works almost smooth, except of flexbox.
-
+Android 4.4.4, 7%, Chrome 33: Doesnt work
+Android 5.1 RC1, 14.4% + 3.5%, Chrome 39. Works almost smooth, except of flexbox.
+https://developer.android.com/about/dashboards
