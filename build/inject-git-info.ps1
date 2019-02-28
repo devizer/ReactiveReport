@@ -13,8 +13,15 @@ function GetVersion {
 function IncrementBuild {
   $build = Get-Content "build.txt"
   $build = 1 + [long] $build
-  $build > "build.txt"
+  SaveContent $build "build.txt"
   return $build
+}
+
+function SaveContent {
+  param([object]$content, [string]$fileName) 
+  $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $False
+  [System.IO.File]::WriteAllLines($fileName, $content, $Utf8NoBomEncoding)
+
 }
 
 
