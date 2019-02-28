@@ -97,7 +97,7 @@ class NavMenu1 extends Component {
         
         let hintMessage = <span id="message-id">Show <b>Errors</b> only</span>;
         if (!this.state.OnlyErrors)
-            hintMessage = <span id="message-id">Show both <b>Errors</b> and info messages</span>;
+            hintMessage = <span id="message-id">Show both <b>Errors</b> and info events</span>;
         
         return (
             <div>    
