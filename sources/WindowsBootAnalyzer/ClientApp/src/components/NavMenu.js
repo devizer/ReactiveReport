@@ -22,7 +22,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-import { CustomizedDialogDemo } from "./AboutDialog"
+import { AppAboutDialog } from "./AboutDialog"
 
 
 const styles = {
@@ -150,7 +150,7 @@ class NavMenu1 extends Component {
                     </Toolbar>
                 </AppBar>
 
-                <CustomizedDialogDemo open={this.state.aboutOpened} onClose={() => this.closeAbout()}/>
+                <AppAboutDialog open={this.state.aboutOpened} onClose={() => this.closeAbout()}/>
                 
             </div>
                 

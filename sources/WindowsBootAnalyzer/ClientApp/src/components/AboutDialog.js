@@ -60,7 +60,7 @@ const info = {
     
 }
 
-export class CustomizedDialogDemo extends React.Component {
+export class AppAboutDialog extends React.Component {
     state = {
         open: false,
     };
