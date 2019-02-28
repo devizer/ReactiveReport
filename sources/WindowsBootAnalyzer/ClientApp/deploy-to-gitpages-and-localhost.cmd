@@ -1,3 +1,7 @@
+pushd ..\..\..\build
+call update-metadata.cmd 
+popd
+
 @mkdir ..\bin 1>nul 2>&1
 
 title [1/2] Build for github.io
@@ -14,7 +18,7 @@ xcopy /y /E /R *.* ..\..\..\..\docs
 popd
 
 title [2/2] Build for localhost
-set WebPackHomePage=http://ReactiveReport.local
+set WebPackHomePage=http://192.168.0.16:88
 type apply-homepage.ps1 | powershell -command -
 
 call npm run build
