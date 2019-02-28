@@ -135,19 +135,19 @@ export class AppAboutDialog extends React.Component {
                         </Typography>
                         <Typography gutterBottom>
                             <div style={dd.infoItem}>&nbsp;
-                                <div style={dd.term}>Version</div>
+                                <div style={dd.term}>version</div>
                                 <div style={dd.value}>{AppGitInfo.Version}</div>
                             </div>
                             <div style={dd.infoItem}>&nbsp;
-                                <div style={dd.term}>Branch</div>
+                                <div style={dd.term}>branch</div>
                                 <div style={dd.value}>{AppGitInfo.Branch}</div>
                             </div>
                             <div style={dd.infoItem}>&nbsp;
-                                <div style={dd.term}>Commit</div>
+                                <div style={dd.term}>commit</div>
                                 <div style={dd.value}>{new Date(AppGitInfo.CommitDate*1000).toLocaleDateString()}</div>
                             </div>
                             <div style={dd.infoItem}>&nbsp;
-                                <div style={dd.term}>Github</div>
+                                <div style={dd.term}>github</div>
                                 <div style={dd.value}><a style={dd.a} href="https://github.com/devizer/ReactiveReport">devizer/ReactiveReport</a></div>
                             </div>
                         </Typography>
