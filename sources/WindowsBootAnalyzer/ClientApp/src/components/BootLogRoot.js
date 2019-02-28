@@ -4,7 +4,7 @@ import {EventIcon} from "./EventIcon"
 import classNames from "classnames"
 
 import {BootAtButton} from "./BootAtButton";
-import BootLogStaticDataSource from './Final-Report.json'
+import BootLogStaticDataSource from '../Final-Report.json'
 import ErrorsOnlyStore from "./ErrorsOnlyStore";
 import {LOG} from "./AppUtils"
 
@@ -134,9 +134,9 @@ export class BootLogRoot extends Component {
         };
 
         return (
-            <div style={{marginTop: "20px"}}>
-                <div style={{display: "flex", border: "1px solid transparent"}}>
-                    <div className="chooseBootAt" style={{display: "block"}}>
+            <div style={{}}>
+                <div style={{paddingTop: "12px", display: "flex", border: "1px solid transparent"}}>
+                    <div className="chooseBootAt" style={{display: "block", borderRight: "1px solid transparent", backgroundColor: "transparent"}}>
                         {this.state.boots.map(boot =>
                             <BootAtButton
                                 onClick={() => { this.selectBootAt(boot.UniqueKey) }}
@@ -148,7 +148,7 @@ export class BootLogRoot extends Component {
                         <input type="button" value="classic" className="Hidden"/>
                     </div>
                     
-                    <div style={{flexGrow: 6}}>
+                    <div style={{flexGrow: 1}}>
                         {/* First event: Boot at */}
                         <div className={classNames("Event", "InfoEvent", {Hidden: !this.state.selectedBoot})}>
                             <EventIcon event={bootEvent}/>{' '}

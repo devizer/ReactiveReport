@@ -21,6 +21,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
+import { CustomizedDialogDemo } from "./AboutDialog"
+
 
 const styles = {
     root: {
@@ -52,6 +54,7 @@ class NavMenu1 extends Component {
             collapsed: true,
             OnlyErrors: false,
             hintVisible: false,
+            aboutOpened: false,
         };
         
         this.closeHint = this.closeHint.bind(this);
@@ -80,6 +83,11 @@ class NavMenu1 extends Component {
         window.location = "https://github.com/devizer/ReactiveReport/tree/master/sources/WindowsBootAnalyzer/ClientApp/src/components";
     }
     
+    openAbout() {
+        this.setState({
+            aboutOpened: true,
+        });
+    }
 
     render () {
         
@@ -90,12 +98,15 @@ class NavMenu1 extends Component {
             hintMessage = <span id="message-id">Show both <b>Errors</b> and info messages</span>;
         
         return (
-            <header>
+            <div>    
 
                 <AppBar position="static">
                     <Toolbar>
-                        <IconButton onClick={() => this.gotoGithub()} className={classes.menuButton} color="inherit" aria-label="Menu">
+                        <IconButton onClick={() => this.gotoGithub()} className={classes.menuButton} color="inherit" aria-label="Source Code">
                             <FontAwesomeIcon icon={faGithub} />
+                        </IconButton>
+                        <IconButton onClick={() => {this.openAbout()}} className={classes.menuButton} color="inherit" aria-label="About">
+                            <MenuIcon />
                         </IconButton>
                         <Typography variant="h6" color="inherit" style={{flexGrow: 10}}>
                             Reactive Material Report
@@ -134,8 +145,12 @@ class NavMenu1 extends Component {
                         
                     </Toolbar>
                 </AppBar>
+
+                <CustomizedDialogDemo open={this.state.aboutOpened} />
                 
-            </header>
+            </div>
+                
+            
         );
     }
 }
