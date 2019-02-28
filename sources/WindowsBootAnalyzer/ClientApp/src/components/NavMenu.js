@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import Switch from '@material-ui/core/Switch';
 import * as ErrorsOnlyActions from "./ErrorsOnlyActions";
 
@@ -102,11 +103,13 @@ class NavMenu1 extends Component {
 
                 <AppBar position="static">
                     <Toolbar>
+                        {/* 
                         <IconButton onClick={() => this.gotoGithub()} className={classes.menuButton} color="inherit" aria-label="Source Code">
                             <FontAwesomeIcon icon={faGithub} />
                         </IconButton>
+                        */}
                         <IconButton onClick={() => {this.openAbout()}} className={classes.menuButton} color="inherit" aria-label="About">
-                            <MenuIcon />
+                            <InfoOutlinedIcon />
                         </IconButton>
                         <Typography variant="h6" color="inherit" style={{flexGrow: 10}}>
                             Reactive Material Report
