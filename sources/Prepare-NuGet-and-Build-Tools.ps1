@@ -3,6 +3,14 @@ $packages = @("vswhere", "ReportUnit",
   "xunit.runner.console", "xunit",
   "JetBrains.dotCover.CommandLineTools");
 
+
+if ($false) {
+try { 
+  [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
+  Write-Host "TLS Client version is 1.2" -ForegroundColor DarkGreen
+} catch { Host "TLS 1.2 is not supported" -ForegroundColor DarkRed }
+}
+
 # Arrange
 $baseDir=$Env:LocalAppData; if (!$baseDir) { $baseDir=$Env:AppData; }
 $workDir = "$baseDir\temp\build-tools-online.temp"
@@ -38,10 +46,16 @@ function SmartDownload { param([string] $key, [string] $url, [string] $fileName)
   Write-Host "Create DIR: $dir"
   New-Item -ItemType Directory -Path $dir -EA SilentlyContinue | out-null
   Write-Host "Caching '$url' as`r`n        [$path]" -ForegroundColor $color
-  $webClient.DownloadFile($url, $path);
-  $path > "$workdir\${key}.path"
-  GetSHA1 $path > "$workdir\${key}.sha1"
-  return $path
+  try {
+    $webClient.DownloadFile($url, $path);
+    $path > "$workdir\${key}.path"
+    GetSHA1 $path > "$workdir\${key}.sha1"
+    return $path
+  } catch {
+    Write-Host "Error downloading: $url" -ForeGroundColor DarkRed
+    Write-Host "$($_.Exception)" -ForeGroundColor Red
+    return $null
+  }
 }
 
 function SmartDownloadSfx { param([string] $key, [string] $url, [string] $fileName)
@@ -80,7 +94,16 @@ function SmartNugetInstall { param( [string] $package )
 $nuget_41 = SmartDownload "NuGet-4.1.0(cache)" "https://dist.nuget.org/win-x86-commandline/v4.1.0/nuget.exe" "NuGet-4.1.0.exe"
 $nuget_344 = SmartDownload "NuGet-3.4.4(cache)" "https://dist.nuget.org/win-x86-commandline/v3.4.4/nuget.exe" "NuGet-3.4.4.exe"
 $nuget_Latest = SmartDownload "NuGet-latest(cache)" "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" "NuGet-latest.exe"
+$nuget_481 = SmartDownload "NuGet-4.8.1(cache)" "https://dist.nuget.org/win-x86-commandline/v4.8.1/nuget.exe" "NuGet-4.8.1.exe"
 $nuget=$nuget_Latest
+$nuget=$nuget_481
+
+$nuget_latest_version = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($nuget_Latest).FileVersion
+Write-Host "NuGet (latest) version is: $nuget_latest_version" -ForegroundColor DarkGray
+
+
+
+
 
 $essentials_dir = SmartDownloadSfx "Essentials(cache)" "https://raw.githubusercontent.com/devizer/glist/master/Essentials/Essentials.7z.exe" "Essentials\Essentials.7z.exe"
 
@@ -118,7 +141,7 @@ AddVar "MSBUILD_x64_EXE" $msbuild_x64
 $nunit_Runner = join-Path -Path "$packagesDir\NUnit.ConsoleRunner.*" -ChildPath "tools\nunit*-console.exe" -Resolve
 AddVar "NUNIT_RUNNER_EXE" $nunit_Runner
 
-$xunit_Runner = join-Path -Path "$packagesDir\xunit.runner.console.*" -ChildPath "tools\net4*\xunit.console.exe" -Resolve
+$xunit_Runner = join-Path -Path "$packagesDir\xunit.runner.console.*" -ChildPath "tools\net47\xunit.console.exe" -Resolve
 AddVar "XUNIT_RUNNER_EXE" $xunit_Runner
 
 $report_Exe = join-Path -Path "$packagesDir\ReportUnit.*" -ChildPath "tools\ReportUnit*.exe" -Resolve
