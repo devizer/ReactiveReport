@@ -4,7 +4,7 @@ $packages = @("vswhere", "ReportUnit",
   "JetBrains.dotCover.CommandLineTools");
 
 
-if ($false) {
+if ($true) {
 try { 
   [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
   Write-Host "TLS Client version is 1.2" -ForegroundColor DarkGreen
