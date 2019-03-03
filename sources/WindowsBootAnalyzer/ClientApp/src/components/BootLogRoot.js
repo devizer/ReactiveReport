@@ -156,12 +156,13 @@ export class BootLogRoot extends Component {
                             <span>{bootEvent.Message}</span>
                         </div>
                         {/* All the events */}
-                        {this.state.logEvents.filter(ev => !onlyErrors || !ev.IsInfo).map(ev => 
+                        {this.state.logEvents.filter(ev => !onlyErrors || !ev.IsInfo).map(ev =>
                             <div className={classNames("Event", ev.IsInfo ? "InfoEvent" : "TroubleEvent")}>
                                 <EventIcon event={ev}/>{' '}
-                                <span id="EventAt">{MomentFormat(ev.TimeGenerated).format("HH:mm:ss A")}{' at '}
-                                {ev.RoundedAt + "s"}</span>{', '}
-                                {ev.IsInfo ? "" : <span>[{ev.EventCode}]{' '}</span>}
+                                <span id="EventAt">
+                                    {MomentFormat(ev.TimeGenerated).format("HH:mm:ss A")}
+                                    {' at '}{ev.RoundedAt + "s"}
+                                </span>{', '}{ev.IsInfo ? "" : <span>[{ev.EventCode}]{' '}</span>}
                                 <span dangerouslySetInnerHTML={{__html: ev.Message}}/>
                             </div>
                         )}
