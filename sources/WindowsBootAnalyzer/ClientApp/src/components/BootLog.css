@@ -124,10 +124,17 @@
   outline: 1px dotted transparent !important;
 }
 
+.BootAtSelected, .BootAtNonSelected {
+  margin-left: 1px !important;
+  margin-right: 1px !important;
+  
+} 
+
 .chooseBootAt button:active, .chooseBootAt button:focus {
   /* border: none !important;
   outline: none !important; */
 }
+
 
 
 /* EVENTS */

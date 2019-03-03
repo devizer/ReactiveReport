@@ -136,7 +136,7 @@ export class BootLogRoot extends Component {
         return (
             <div style={{}}>
                 <div style={{paddingTop: "12px", display: "flex", border: "1px solid transparent"}}>
-                    <div className="chooseBootAt" style={{display: "block", flexGrow: 1, borderRight: "1px solid transparent", backgroundColor: "inherit", width: 160, minWidth: 160}}>
+                    <div className="chooseBootAt" style={{display: "block", flexGrow: 1, borderRight: "1px solid transparent", backgroundColor: "inherit", width: 160, minWidth: 160, maxWidth: 160}}>
                         {this.state.boots.map(boot =>
                             <BootAtButton
                                 onClick={() => { this.selectBootAt(boot.UniqueKey) }}
