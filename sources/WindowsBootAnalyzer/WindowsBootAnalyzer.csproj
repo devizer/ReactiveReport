@@ -26,6 +26,7 @@
         <Content Include="ClientApp\src\components\ErrorsOnlyDispatcher.js" />
         <Content Include="ClientApp\src\components\ErrorsOnlyStore.js" />
         <Content Include="ClientApp\src\components\EventIcon.js" />
+        <Content Include="ClientApp\src\Page404.js" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
         <None Remove="ClientApp\build\**" />

@@ -2,7 +2,7 @@
 $pack = (Get-Content "package.json" | ConvertFrom-Json)
 $homepage=$Env:WebPackHomePage;
 if (-not $homepage) { $homepage=$null; }
-Write-Host "Applying home page for project $($pack.name)"
+Write-Host "Applying home page for project $($pack.name): [$homepage]"
 try { $pack.PSObject.Properties.Remove("homepage"); } catch {}
 if ($homepage) {
   $pack | Add-Member -NotePropertyName homepage -NotePropertyValue $homepage

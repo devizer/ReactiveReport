@@ -15,35 +15,36 @@ export class EventIcon extends Component {
     }
 
     render() {
-        
+
         let button = null;
         if (this.props.event.Action == "ServiceStarted")
-            button = <FontAwesomeIcon icon={faRunning} />;
+            button = <FontAwesomeIcon icon={faRunning}/>;
         else if (this.props.event.Action == "ServiceStopped")
-            button = <FontAwesomeIcon icon={faStopCircle} />;
+            button = <FontAwesomeIcon icon={faStopCircle}/>;
         else if (this.props.event.Action == "Boot")
-            button = <FontAwesomeIcon icon={faArrowAltCircleRight} />;
-        
+            button = <FontAwesomeIcon icon={faArrowAltCircleRight}/>;
+
         if (!this.props.event.IsInfo)
-            button = <FontAwesomeIcon icon={faExclamationTriangle} />;
-        
+            button = <FontAwesomeIcon icon={faExclamationTriangle}/>;
+
         if (button === null)
-            button=<span/>;
+            button = <span/>;
 
         return (
             <span className="EventIconWrapper">{button}</span>
         );
-            
-        {/*<FontAwesomeIcon icon={faStopCircle} />*/}
-        {/*<FontAwesomeIcon icon={faRunning} />&nbsp;*/}
-        {/*<FontAwesomeIcon icon={faTired} />&nbsp;*/}
-        {/*<FontAwesomeIcon icon={faExclamationTriangle} />&nbsp;*/}
+
+        {/*<FontAwesomeIcon icon={faStopCircle} />*/
+        }
+        {/*<FontAwesomeIcon icon={faRunning} />&nbsp;*/
+        }
+        {/*<FontAwesomeIcon icon={faTired} />&nbsp;*/
+        }
+        {/*<FontAwesomeIcon icon={faExclamationTriangle} />&nbsp;*/
+        }
 
     }
 
 
-
-
-
-    }
+}
 

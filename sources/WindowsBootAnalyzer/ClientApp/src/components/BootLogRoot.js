@@ -21,6 +21,8 @@ export class BootLogRoot extends Component {
         var boots = BootLogStaticDataSource.Boots;
 
         this.selectBootAt = this.selectBootAt.bind(this);
+        LOG.toConsole("props of BootLogRoot", props);
+        LOG.toConsole("match of BootLogRoot", props.match);
 
         console.log('type of boots: ' + (typeof boots));
         console.log('boots[] length: ' + (boots.length));
