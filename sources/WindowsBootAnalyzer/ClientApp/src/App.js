@@ -10,8 +10,8 @@ export default class App extends Component {
   render () {
     return (
       <Layout>
-        <Route exact path='/boot-at/:id' component={BootLogRoot} />
-        <Route exact path='/' component={BootLogRoot} />
+        <Route path='/boot-at/:bootAtKey/:bootAtComment' component={BootLogRoot} />
+        <Route path='/' component={BootLogRoot} />
         <Route component={Page404} />
       </Layout>
     );

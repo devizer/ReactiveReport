@@ -1,3 +1,4 @@
+set NODE_DISABLE_COLORS=1
 pushd ..\..\..\build
 call update-metadata.cmd 
 popd

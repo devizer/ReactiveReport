@@ -19,11 +19,13 @@ export class BootLogRoot extends Component {
     constructor(props) {
         super(props);
         var boots = BootLogStaticDataSource.Boots;
-
         this.selectBootAt = this.selectBootAt.bind(this);
+        
         LOG.toConsole("props of BootLogRoot", props);
         LOG.toConsole("match of BootLogRoot", props.match);
-
+        
+        this.argBootAtKey = props.match.params.bootAtKey;
+        
         console.log('type of boots: ' + (typeof boots));
         console.log('boots[] length: ' + (boots.length));
         console.log(boots);
@@ -59,10 +61,11 @@ export class BootLogRoot extends Component {
                 }
             });
         });
+        
 
         this.state = {
             boots: boots, 
-            selectedKey: '', 
+            selectedKey: "",
             logEvents: [],
             errorsOnly: ErrorsOnlyStore.getErrorsOnly()
         };
@@ -72,12 +75,27 @@ export class BootLogRoot extends Component {
     componentDidMount() {
         ErrorsOnlyStore.on('storeUpdated', this.updateErrorsOnly);
         console.log("componentDidMount()");
-        
-        if (this.state.boots.length > 0)
+
+        let bootAtKey = this.props.match.params.bootAtKey;
+        if (bootAtKey)
         {
-            let selectedKey = this.state.boots[0].UniqueKey;
-            this.selectBootAt(selectedKey);
+            let filtered = this.state.boots.filter(boot => boot.UniqueKey === bootAtKey);
+            if (filtered.length === 0)
+            {
+                // goto 404
+                bootAtKey = null;
+                console.log(`MOUNTING: [${bootAtKey}] not found`);
+            }
         }
+
+        if (!bootAtKey && this.state.boots.length > 0) {
+            bootAtKey = this.state.boots[0].UniqueKey;
+        }
+        
+        if (bootAtKey) {
+            this.selectBootAt(bootAtKey);
+        }
+
     }
     
     updateErrorsOnly = () => {
