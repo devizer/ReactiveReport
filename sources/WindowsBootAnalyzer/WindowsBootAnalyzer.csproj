@@ -8,6 +8,8 @@
         <SpaRoot>ClientApp\</SpaRoot>
         <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
         <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+        <PackageVersion>1.22.333</PackageVersion>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     </PropertyGroup>
 
     <ItemGroup>

@@ -41,7 +41,7 @@ $commitDate = $lines[0].Split(" ")[0]
 # AssemblyInfo.cs
 $version = GetVersion
 $build = IncrementBuild
-"[assembly: SystemReflection.AssemblyGitInfo(`"$version.$build.$commitCount`"]" > AssemblyInfo.cs
+"[assembly: System.Reflection.AssemblyVersion(`"$version.$build.$commitCount`")]" > AssemblyVersion.cs
 
 # AppGitInfo.json
 $jsonInfo = @{
@@ -52,3 +52,7 @@ $jsonInfo = @{
 }
 SaveAsJson $jsonInfo "AppGitInfo.json"
 Copy-Item "AppGitInfo.json" ..\sources\WindowsBootAnalyzer\ClientApp\src\AppGitInfo.json -Force
+
+foreach($t in @("OfflinePrepare", "WindowsBootAnalyzer")) {
+  cp "*.cs" "..\sources\$t\Properties\"
+}

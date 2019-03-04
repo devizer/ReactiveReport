@@ -35,3 +35,5 @@ popd
 
 set WebPackHomePage=.
 type apply-homepage.ps1 | powershell -command -
+
+type src\AppGitInfo.json 
