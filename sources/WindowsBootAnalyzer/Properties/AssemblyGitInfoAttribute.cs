@@ -28,7 +28,7 @@ namespace Universe
                 throw new ArgumentNullException(nameof(assembly));
             }
 
-            IEnumerable<Attribute> arr = assembly.GetCustomAttributes(typeof(AssemblyGitInfoAttribute));
+            object[] arr = assembly.GetCustomAttributes(typeof(AssemblyGitInfoAttribute), false);
             AssemblyGitInfoAttribute attr = (AssemblyGitInfoAttribute) arr.FirstOrDefault();
             return attr;
         }
