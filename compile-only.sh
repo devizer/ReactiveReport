@@ -17,7 +17,8 @@ msbuild /v:n /p:Configuration=Release /t:Rebuild OfflinePrepare.csproj
 popd
 
 pushd WindowsBootAnalyzer
-cd ClientApp; npm install; cd ..
+cd ClientApp;
+yarn install || npm install; cd ..
 if [[ $(uname -m) == armv7* ]]; then rid=linux-arm; else rid=linux-arm64; fi; if [[ "$(uname -m)" == "x86_64" ]]; then rid=linux-x64; fi; echo ".NET Core runtime identifier: $rid"
 dotnet publish --self-contained -r $rid -c Release -o bin/public WindowsBootAnalyzer.csproj
 popd
