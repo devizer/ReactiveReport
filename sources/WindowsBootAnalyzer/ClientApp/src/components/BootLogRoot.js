@@ -9,8 +9,11 @@ import ErrorsOnlyStore from "./ErrorsOnlyStore";
 import {LOG} from "./AppUtils"
 
 import './BootLog.css';
-const $ = window.$;
 
+var proxyArrayFind = require('ponyfill-array'); /* IE 11 fix of find method */
+let TheRoot = 'I AM THE GROOT';
+console.log(TheRoot);
+const $ = window.$;
 
 export class BootLogRoot extends Component {
 
@@ -109,14 +112,7 @@ export class BootLogRoot extends Component {
         let boots = this.state.boots;
         LOG.toConsole(`selectBootAt() [BootLogRoot]::state.boots`, boots);
 
-        // let rowSource = this.state.boots.find( (el) => el.UniqueKey === uniqueKey);
-        let rowSource = null;
-        this.state.boots.map(el => {
-            if (el.UniqueKey === uniqueKey) {
-                rowSource = el;
-            }
-        });
-        /* IE 11 fix of find method */
+        let rowSource = this.state.boots.find( (el) => el.UniqueKey === uniqueKey);
         
         LOG.toConsole(`${logPrefix}DataSource found`, rowSource);
         let events = rowSource ? rowSource.Events : [];
