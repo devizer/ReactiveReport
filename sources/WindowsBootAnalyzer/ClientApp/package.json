@@ -1,52 +1,52 @@
 {
-    "name":  "devizer.ReactiveReport",
-    "version":  "1.1.2",
-    "private":  true,
-    "dependencies":  {
-                         "@fortawesome/fontawesome-svg-core":  "^1.2.15",
-                         "@fortawesome/free-brands-svg-icons":  "^5.7.2",
-                         "@fortawesome/free-regular-svg-icons":  "^5.7.2",
-                         "@fortawesome/free-solid-svg-icons":  "^5.7.2",
-                         "@fortawesome/react-fontawesome":  "^0.1.4",
-                         "@material-ui/core":  "^3.9.2",
-                         "@material-ui/icons":  "^3.0.2",
-                         "bootstrap":  "^4.3.1",
-                         "classnames":  "^2.2.6",
-                         "flux":  "^3.1.3",
-                         "jquery":  "3.3.1",
-                         "moment":  "^2.24.0",
-                         "ponyfill-array":  "^0.1.0",
-                         "ponyfill-array-find":  "^1.0.1",
-                         "react":  "^16.3.0",
-                         "react-dom":  "^16.3.0",
-                         "react-moment":  "^0.8.4",
-                         "react-router-bootstrap":  "^0.24.4",
-                         "react-router-dom":  "^4.3.1",
-                         "react-scripts":  "^1.1.5",
-                         "reactn":  "^1.0.0",
-                         "reactstrap":  "^6.5.0",
-                         "rimraf":  "^2.6.3"
-                     },
-    "devDependencies":  {
-                            "ajv":  "^6.9.2",
-                            "babel-eslint":  "^7.2.3",
-                            "cross-env":  "^5.2.0",
-                            "eslint":  "^4.1.1",
-                            "eslint-config-react-app":  "^2.1.0",
-                            "eslint-plugin-flowtype":  "^2.50.3",
-                            "eslint-plugin-import":  "^2.16.0",
-                            "eslint-plugin-jsx-a11y":  "^5.1.1",
-                            "eslint-plugin-react":  "^7.12.4"
-                        },
-    "eslintConfig":  {
-                         "extends":  "react-app"
-                     },
-    "scripts":  {
-                    "start":  "rimraf ./build \u0026\u0026 react-scripts start",
-                    "build":  "react-scripts build",
-                    "test":  "cross-env CI=true react-scripts test --env=jsdom",
-                    "eject":  "react-scripts eject",
-                    "lint":  "eslint ./src/"
-                },
-    "homepage":  "."
+    "name": "devizer.ReactiveReport",
+    "version": "1.1.2",
+    "private": true,
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.15",
+        "@fortawesome/free-brands-svg-icons": "^5.7.2",
+        "@fortawesome/free-regular-svg-icons": "^5.7.2",
+        "@fortawesome/free-solid-svg-icons": "^5.7.2",
+        "@fortawesome/react-fontawesome": "^0.1.4",
+        "@material-ui/core": "^3.9.2",
+        "@material-ui/icons": "^3.0.2",
+        "bootstrap": "^4.3.1",
+        "classnames": "^2.2.6",
+        "flux": "^3.1.3",
+        "jquery": "3.3.1",
+        "moment": "^2.24.0",
+        "ponyfill-array": "^0.1.0",
+        "ponyfill-array-find": "^1.0.1",
+        "react": "^16.3.0",
+        "react-dom": "^16.3.0",
+        "react-moment": "^0.8.4",
+        "react-router-bootstrap": "^0.24.4",
+        "react-router-dom": "^4.3.1",
+        "react-scripts": "^1.1.5",
+        "reactn": "^1.0.0",
+        "reactstrap": "^6.5.0",
+        "rimraf": "^2.6.3"
+    },
+    "devDependencies": {
+        "ajv": "^6.9.2",
+        "babel-eslint": "^7.2.3",
+        "cross-env": "^5.2.0",
+        "eslint": "^4.1.1",
+        "eslint-config-react-app": "^2.1.0",
+        "eslint-plugin-flowtype": "^2.50.3",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-jsx-a11y": "^5.1.1",
+        "eslint-plugin-react": "^7.12.4"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "scripts": {
+        "start": "rimraf ./build && react-scripts start",
+        "build": "react-scripts build",
+        "test": "cross-env CI=true react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "lint": "eslint ./src/"
+    },
+    "homepage": "."
 }

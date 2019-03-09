@@ -331,3 +331,4 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /sources/WindowsBootAnalyzer/ClientApp/yarn.lock
+/sources/WindowsBootAnalyzer/ClientApp/package-lock.json
