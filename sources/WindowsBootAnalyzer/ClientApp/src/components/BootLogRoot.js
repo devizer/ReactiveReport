@@ -33,6 +33,7 @@ export class BootLogRoot extends Component {
         console.log('boots[] length: ' + (boots.length));
         console.log(boots);
 
+        let startAt = +new Date();
         let bootIndex = 0;
         boots.map(boot => {
             boot.UniqueKey = "B" + (++bootIndex);
@@ -64,6 +65,8 @@ export class BootLogRoot extends Component {
                 }
             });
         });
+        let transformDuration = (+new Date()) - startAt;
+        console.log(`ON Start report mapping duration: ${transformDuration}`);
         
 
         this.state = {
