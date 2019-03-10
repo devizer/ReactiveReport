@@ -1,5 +1,9 @@
 set NODE_ENV=production
 
+@mkdir bin 1>nul 2>&1
+call npm test --no-watch > bin\report.tests.log
+if ErrorLevel 1 goto exit
+
 set NODE_DISABLE_COLORS=1
 pushd ..\..\..\build
 call update-metadata.cmd 
@@ -12,6 +16,8 @@ set WebPackHomePage=https://devizer.github.io/ReactiveReport
 type apply-homepage.ps1 | powershell -command -
 
 call npm run build
+if ErrorLevel 1 goto exit
+
 pushd build
 del ..\bin\devizer.github.io.zip
 "C:\Program Files\7-Zip\7z" a ..\bin\devizer.github.io.zip 
@@ -25,6 +31,8 @@ set WebPackHomePage=http://192.168.0.16:88
 type apply-homepage.ps1 | powershell -command -
 
 call npm run build
+if ErrorLevel 1 goto exit
+
 pushd build
 del ..\bin\localhost.zip 
 "C:\Program Files\7-Zip\7z" a ..\bin\localhost.zip
@@ -39,3 +47,4 @@ set WebPackHomePage=.
 type apply-homepage.ps1 | powershell -command -
 
 type src\AppGitInfo.json 
+
