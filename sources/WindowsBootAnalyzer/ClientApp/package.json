@@ -28,10 +28,10 @@
                          "rimraf":  "^2.6.3"
                      },
     "devDependencies":  {
+                            "source-map-explorer":  "^1.7.0",
                             "ajv":  "^6.9.2",
                             "babel-eslint":  "^9.0.0",
                             "cross-env":  "^5.2.0",
-                            "eslint":  "^5.12.0",
                             "eslint-config-react-app":  "^2.1.0",
                             "eslint-plugin-flowtype":  "^2.50.3",
                             "eslint-plugin-import":  "^2.16.0",
@@ -42,6 +42,7 @@
                          "extends":  "react-app"
                      },
     "scripts":  {
+                    "analyze":  "source-map-explorer build/static/js/main.*",
                     "start":  "rimraf ./build \u0026\u0026 react-scripts start",
                     "build":  "react-scripts build",
                     "test":  "cross-env CI=true react-scripts test --env=jsdom",
