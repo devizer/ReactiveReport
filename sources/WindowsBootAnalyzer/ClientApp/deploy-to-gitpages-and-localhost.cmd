@@ -5,19 +5,20 @@ pushd ..\..\..\build
 call update-metadata.cmd 
 popd
 
-title [1/3] run Tests
-@mkdir bin 1>nul 2>&1
-call npm test --no-watch > bin\report.tests.log
-if ErrorLevel 1 goto error
-
 @mkdir ..\bin 1>nul 2>&1
 
-title [2/3] Build for github.io
+title [1/3] Build for github.io
 set WebPackHomePage=https://devizer.github.io/ReactiveReport
 type apply-homepage.ps1 | powershell -command -
 
 call npm run build
 if ErrorLevel 1 goto error
+
+title [2/3] run Tests
+@mkdir bin 1>nul 2>&1
+call npm test --no-watch > bin\report.tests.log
+if ErrorLevel 1 goto error
+
 
 pushd build
 del ..\bin\devizer.github.io.zip
