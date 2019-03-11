@@ -178,7 +178,7 @@ export class BootLogRoot extends Component {
                         {this.state.logEvents.filter(ev => !onlyErrors || !ev.IsInfo).map(ev =>
                             <div className={classNames("Event", ev.IsInfo ? "InfoEvent" : "TroubleEvent")}>
                                 <EventIcon event={ev}/>{' '}
-                                <span id="EventAt">
+                                <span class="EventAt">
                                     {MomentFormat(ev.TimeGenerated).format("HH:mm:ss A")}
                                     {' at '}{ev.RoundedAt + "s"}
                                 </span>{', '}{ev.IsInfo ? "" : <span>[{ev.EventCode}]{' '}</span>}
