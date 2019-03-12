@@ -116,6 +116,7 @@ class NavMenu1 extends Component {
                             Reactive Material Report
                         </Typography>
                         <Switch
+                            aria-label="Show errors only"
                             checked={this.state.OnlyErrors}
                             onChange={this.handleChange('OnlyErrors')}
                             value="OnlyErrors"

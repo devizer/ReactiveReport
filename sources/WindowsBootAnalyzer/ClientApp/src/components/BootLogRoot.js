@@ -11,7 +11,7 @@ import {LOG} from "./AppUtils"
 import './BootLog.css';
 
 var proxyArrayFind = require('ponyfill-array'); /* IE 11 fix of find method */
-let TheRoot = 'I AM THE GROOT';
+let TheRoot = 'I IS GROOT';
 console.log(TheRoot);
 const $ = window.$;
 
@@ -75,7 +75,6 @@ export class BootLogRoot extends Component {
             logEvents: [],
             errorsOnly: ErrorsOnlyStore.getErrorsOnly()
         };
-
     }
     
     componentDidMount() {
@@ -101,12 +100,11 @@ export class BootLogRoot extends Component {
         if (bootAtKey) {
             this.selectBootAt(bootAtKey);
         }
-
     }
     
     updateErrorsOnly = () => {
         this.setState({errorsOnly: ErrorsOnlyStore.getErrorsOnly()});
-        console.log(`Change-Errors-Only event recieved: ${ErrorsOnlyStore.getErrorsOnly()}`);
+        console.log(`Change-Errors-Only event received: ${ErrorsOnlyStore.getErrorsOnly()}`);
     };
 
     selectBootAt(uniqueKey) {
@@ -124,22 +122,8 @@ export class BootLogRoot extends Component {
             logEvents: events,
             selectedBoot: rowSource,
         });
-
-        let x = 5;
     }
 
-    dateAsTimeString(dateAsJson) {
-        var d = new Date(Date.parse(dateAsJson));
-        var options = {month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'};
-        return d.toLocaleString('en-US', options);
-    }
-
-    incrementCounter() {
-        this.setState({
-            currentCount: this.state.currentCount + 1
-        });
-    }
-    
     render() {
 
         let onlyErrors = this.state.errorsOnly;
