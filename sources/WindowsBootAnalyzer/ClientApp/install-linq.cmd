@@ -1,0 +1,1 @@
+call npm install --save linq-es2015 linq

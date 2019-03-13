@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import MomentFormat from 'moment';
 import {EventIcon} from "./EventIcon"
 import classNames from "classnames"
+import * as Enumerable from "linq-es2015"
+
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 
 import {BootAtButton} from "./BootAtButton";
 import BootLogStaticDataSource from '../Final-Report.json'
@@ -67,13 +75,22 @@ export class BootLogRoot extends Component {
         });
         let transformDuration = (+new Date()) - startAt;
         console.log(`ON Start report mapping duration: ${transformDuration}`);
+
+        let servicesWithErrors = Enumerable.asEnumerable(boots)
+            .SelectMany(b => b.Events)
+            .Where(e => !e.IsInfo)
+            .Select(e => e.ServiceName)
+            .Distinct()
+            .OrderBy(name => name).ToArray();
+        console.log(`Services with errors: ${servicesWithErrors.length} \r\n${servicesWithErrors.join(", ")}`);
         
 
         this.state = {
             boots: boots, 
             selectedKey: "",
             logEvents: [],
-            errorsOnly: ErrorsOnlyStore.getErrorsOnly()
+            errorsOnly: ErrorsOnlyStore.getErrorsOnly(),
+            servicesWithErrors: servicesWithErrors,
         };
     }
     
@@ -124,6 +141,27 @@ export class BootLogRoot extends Component {
         });
     }
 
+    handleChange = panel => (event, expanded) => {
+        this.setState({
+            expanded: expanded ? panel : false,
+        });
+    };
+
+    expandableServices = theme => ({
+        root: {
+            width: '100%',
+        },
+        heading: {
+            fontSize: theme.typography.pxToRem(15),
+            flexBasis: '33.33%',
+            flexShrink: 0,
+        },
+        secondaryHeading: {
+            fontSize: theme.typography.pxToRem(15),
+            color: theme.palette.text.secondary,
+        },
+    });
+
     render() {
 
         let onlyErrors = this.state.errorsOnly;
@@ -136,12 +174,30 @@ export class BootLogRoot extends Component {
             IsInfo: true,
         };
 
+        const { expanded } = this.state;
+
+
         return (
             <div style={{}}>
+                <br/>
+
+                <ExpansionPanel expanded={expanded === 'panelServices'} onChange={this.handleChange('panelServices')}>
+                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                        <Typography className="">Summary warning! Found {this.state.servicesWithErrors.length} services with troubles</Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails>
+                        <Typography>
+                            {this.state.servicesWithErrors.map(svc =>
+                                <span><nowrap>{svc}</nowrap><br/></span>
+                            )}
+                        </Typography>
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
+                
                 <div style={{paddingTop: "12px", display: "flex", border: "1px solid transparent"}}>
                     <div className="chooseBootAt" style={{display: "block", flexGrow: 1, borderRight: "1px solid transparent", backgroundColor: "inherit", width: 160, minWidth: 160, maxWidth: 160}}>
                         {this.state.boots.map(boot =>
-                            <BootAtButton
+                            <BootAtButton key={boot.UniqueKey}
                                 onClick={() => { this.selectBootAt(boot.UniqueKey) }}
                                 bootAt={boot}
                                 isSelected={this.state.selectedKey === boot.UniqueKey}
@@ -160,9 +216,9 @@ export class BootLogRoot extends Component {
                         </div>
                         {/* All the events */}
                         {this.state.logEvents.filter(ev => !onlyErrors || !ev.IsInfo).map(ev =>
-                            <div className={classNames("Event", ev.IsInfo ? "InfoEvent" : "TroubleEvent")}>
+                            <div key={ev.UniqueKey} className={classNames("Event", ev.IsInfo ? "InfoEvent" : "TroubleEvent")}>
                                 <EventIcon event={ev}/>{' '}
-                                <span class="EventAt">
+                                <span className="EventAt">
                                     {MomentFormat(ev.TimeGenerated).format("HH:mm:ss A")}
                                     {' at '}{ev.RoundedAt + "s"}
                                 </span>{', '}{ev.IsInfo ? "" : <span>[{ev.EventCode}]{' '}</span>}
