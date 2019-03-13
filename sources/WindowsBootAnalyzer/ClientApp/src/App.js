@@ -5,11 +5,6 @@ import { Layout } from './components/Layout';
 import { BootLogRoot } from "./components/BootLogRoot";
 import { Page404 } from "./Page404";
 
-// linq for IE 11 support
-// require('es5-shim');
-// require('es5-shim/es5-sham');
-// require('console-polyfill');
-
 
 export default class App extends Component {
     static displayName = App.name;
