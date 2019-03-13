@@ -17,11 +17,11 @@ export class EventIcon extends Component {
     render() {
 
         let button = null;
-        if (this.props.event.Action == "ServiceStarted")
+        if (this.props.event.Action === "ServiceStarted")
             button = <FontAwesomeIcon icon={faRunning}/>;
-        else if (this.props.event.Action == "ServiceStopped")
+        else if (this.props.event.Action === "ServiceStopped")
             button = <FontAwesomeIcon icon={faStopCircle}/>;
-        else if (this.props.event.Action == "Boot")
+        else if (this.props.event.Action === "Boot")
             button = <FontAwesomeIcon icon={faArrowAltCircleRight}/>;
 
         if (!this.props.event.IsInfo)

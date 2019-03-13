@@ -38,7 +38,7 @@ export class BootLogRoot extends Component {
         
         console.log('type of boots: ' + (typeof boots));
         console.log('boots[] length: ' + (boots.length));
-        console.log(boots);
+        LOG.toConsole("boots[]", boots);
 
         let startAt = +new Date();
         let bootIndex = 0;
