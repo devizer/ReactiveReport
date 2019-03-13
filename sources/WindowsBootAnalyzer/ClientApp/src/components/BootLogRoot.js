@@ -26,11 +26,10 @@ console.log(TheRoot);
 const $ = window.$;
 
 const stylesPanel = {
-    expanded: { marginTop: "0px !important", marginBottom: "0px !important" },
+    expanded: { marginTop: "0px", marginBottom: "0px" },
 };
 
 const MyExpansionPanel = withStyles(stylesPanel, { name: 'MyExpansionPanel' })(ExpansionPanel);
-
 
 export class BootLogRoot extends Component {
 
@@ -196,7 +195,7 @@ export class BootLogRoot extends Component {
                 
                 <MyExpansionPanel >
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography className="">Summary warning! Found {this.state.servicesWithErrors.length} services with troubles</Typography>
+                        <Typography className="">Warning! Found {this.state.servicesWithErrors.length} services with troubles</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                         <Typography>

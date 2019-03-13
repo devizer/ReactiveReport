@@ -8,6 +8,8 @@ import { faArrowAltCircleUp } from '@fortawesome/free-regular-svg-icons'
 import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons'
 import {Component} from "react";
 import React from "react";
+import PropTypes from "prop-types";
+import {BootAtButton} from "./BootAtButton";
 
 export class EventIcon extends Component {
     constructor(props) {
@@ -23,7 +25,7 @@ export class EventIcon extends Component {
             button = <FontAwesomeIcon icon={faStopCircle}/>;
         else if (this.props.event.Action === "Boot")
             button = <FontAwesomeIcon icon={faArrowAltCircleRight}/>;
-
+        
         if (!this.props.event.IsInfo)
             button = <FontAwesomeIcon icon={faExclamationTriangle}/>;
 
@@ -44,7 +46,12 @@ export class EventIcon extends Component {
         }
 
     }
-
-
 }
 
+EventIcon.propTypes = {
+    // event: PropTypes.object.isRequired,
+    event: PropTypes.shape({
+        IsInfo: PropTypes.bool.isRequired,
+        Action: PropTypes.string.isRequired
+    }),
+};

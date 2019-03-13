@@ -14,10 +14,12 @@ import AppGitInfo from '../AppGitInfo'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
 import Toolbar from "./NavMenu";
+import PropTypes from "prop-types";
+import {BootAtButton} from "./BootAtButton";
 
 const DialogTitle = withStyles(theme => ({
     root: {
-        borderBottom_ignoreit: `1px solid ${theme.palette.divider}`,
+        borderBottom_ignore_it: `1px solid ${theme.palette.divider}`,
         margin: 0,
         padding: theme.spacing.unit * 2,
     },
@@ -56,9 +58,6 @@ const DialogActions = withStyles(theme => ({
     },
 }))(MuiDialogActions);
 
-const info = {
-    
-}
 
 export class AppAboutDialog extends React.Component {
     state = {
@@ -157,3 +156,7 @@ export class AppAboutDialog extends React.Component {
     }
 }
 
+AppAboutDialog.propTypes = {
+    onClose: PropTypes.func.isRequired,
+    open: PropTypes.bool.isRequired,
+};

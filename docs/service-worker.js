@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/ReactiveReport/precache-manifest.b2f80b38ea4c086346de285ef2dce2f8.js"
+  "/ReactiveReport/precache-manifest.ab24a0e81f51a624bb24824be03062fc.js"
 );
 
 workbox.clientsClaim();

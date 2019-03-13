@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import {LOG} from "./AppUtils"
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import red from '@material-ui/core/colors/red';
 import green from '@material-ui/core/colors/green';
 import classNames from "classnames";
+// import {PropTypes} from "@material-ui/core";
 
 const $ = window.$;
 
@@ -32,7 +34,8 @@ export class BootAtButton extends Component {
 
     render() {
         let boot = this.props.bootAt;
-        let theme = boot.IsOk ? BootAtButton.themeOk : BootAtButton.themeError;
+        if (!boot) { boot = {}};
+        let theme = boot && boot.IsOk ? BootAtButton.themeOk : BootAtButton.themeError;
 
         return (
             <MuiThemeProvider theme={theme}>
@@ -53,3 +56,10 @@ export class BootAtButton extends Component {
         );
     }
 }
+
+BootAtButton.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    isSelected: PropTypes.bool.isRequired,
+    bootAt: PropTypes.object.isRequired,
+};
+
