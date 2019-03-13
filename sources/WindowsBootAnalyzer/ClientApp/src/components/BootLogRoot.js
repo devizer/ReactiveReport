@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import MomentFormat from 'moment';
 import {EventIcon} from "./EventIcon"
 import classNames from "classnames"
-import * as Enumerable from "linq-es2015"
+import * as Enumerable from "linq-es5"
 
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
 
 import {BootAtButton} from "./BootAtButton";
 import BootLogStaticDataSource from '../Final-Report.json'
@@ -54,7 +53,7 @@ export class BootLogRoot extends Component {
             let eventIndex = 0;
             boot.Events.map(ev => {
                 ev.UniqueKey = `B${bootIndex}-E${++eventIndex}`;
-                ev.IsInfo = ev.Type == "Information";
+                ev.IsInfo = ev.Type === "Information";
                 ev.RoundedAt = ev.At < 100 ? Math.round(ev.At*10) / 10 : Math.round(ev.At);
                 if (ev.Message)
                 {
@@ -76,13 +75,16 @@ export class BootLogRoot extends Component {
         let transformDuration = (+new Date()) - startAt;
         console.log(`ON Start report mapping duration: ${transformDuration}`);
 
+        startAt = +new Date();
         let servicesWithErrors = Enumerable.asEnumerable(boots)
             .SelectMany(b => b.Events)
             .Where(e => !e.IsInfo)
             .Select(e => e.ServiceName)
             .Distinct()
             .OrderBy(name => name).ToArray();
-        console.log(`Services with errors: ${servicesWithErrors.length} \r\n${servicesWithErrors.join(", ")}`);
+        transformDuration = (+new Date()) - startAt;
+        console.log(`${servicesWithErrors.length} services with errors: ${servicesWithErrors.join(", ")}`);
+        console.log(`ON [Services with errors] duration: ${transformDuration}`);
         
 
         this.state = {
@@ -181,14 +183,14 @@ export class BootLogRoot extends Component {
             <div style={{}}>
                 <br/>
 
-                <ExpansionPanel expanded={expanded === 'panelServices'} onChange={this.handleChange('panelServices')}>
+                <ExpansionPanel >
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                         <Typography className="">Summary warning! Found {this.state.servicesWithErrors.length} services with troubles</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                         <Typography>
                             {this.state.servicesWithErrors.map(svc =>
-                                <span><nowrap>{svc}</nowrap><br/></span>
+                                <span key={svc}><nobr>{svc}</nobr><br/></span>
                             )}
                         </Typography>
                     </ExpansionPanelDetails>
