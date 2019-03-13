@@ -9,11 +9,14 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import { makeStyles } from '@material-ui/styles'; alpha-next
 
 import {BootAtButton} from "./BootAtButton";
 import BootLogStaticDataSource from '../Final-Report.json'
 import ErrorsOnlyStore from "./ErrorsOnlyStore";
 import {LOG} from "./AppUtils"
+import { withStyles } from '@material-ui/core/styles';
+
 
 import './BootLog.css';
 
@@ -21,6 +24,13 @@ var proxyArrayFind = require('ponyfill-array'); /* IE 11 fix of find method */
 let TheRoot = 'I IS GROOT';
 console.log(TheRoot);
 const $ = window.$;
+
+const stylesPanel = {
+    expanded: { marginTop: "0px !important", marginBottom: "0px !important" },
+};
+
+const MyExpansionPanel = withStyles(stylesPanel, { name: 'MyExpansionPanel' })(ExpansionPanel);
+
 
 export class BootLogRoot extends Component {
 
@@ -176,14 +186,15 @@ export class BootLogRoot extends Component {
             IsInfo: true,
         };
 
-        const { expanded } = this.state;
+        // const { expanded } = this.state;
 
 
         return (
             <div style={{}}>
                 <br/>
 
-                <ExpansionPanel >
+                
+                <MyExpansionPanel >
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                         <Typography className="">Summary warning! Found {this.state.servicesWithErrors.length} services with troubles</Typography>
                     </ExpansionPanelSummary>
@@ -194,7 +205,7 @@ export class BootLogRoot extends Component {
                             )}
                         </Typography>
                     </ExpansionPanelDetails>
-                </ExpansionPanel>
+                </MyExpansionPanel>
                 
                 <div style={{paddingTop: "12px", display: "flex", border: "1px solid transparent"}}>
                     <div className="chooseBootAt" style={{display: "block", flexGrow: 1, borderRight: "1px solid transparent", backgroundColor: "inherit", width: 160, minWidth: 160, maxWidth: 160}}>
