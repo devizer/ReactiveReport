@@ -223,7 +223,7 @@ export class BootLogRoot extends Component {
                         {/* First event: Boot at */}
                         <div className={classNames("Event", "InfoEvent", {Hidden: !this.state.selectedBoot})}>
                             <EventIcon event={bootEvent}/>{' '}
-                            <span id="EventAt">{MomentFormat(bootEvent.TimeGenerated).format("HH:mm:ss A")}</span>{': '}
+                            <span className="EventAt">{MomentFormat(bootEvent.TimeGenerated).format("HH:mm:ss A")}</span>{': '}
                             <span>{bootEvent.Message}</span>
                         </div>
                         {/* All the events */}

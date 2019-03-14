@@ -183,7 +183,7 @@ body    {overflow-y:scroll;}
   border-bottom: 1px dotted red
 }
 
-#EventAt { 
+.EventAt { 
   text-align: left; 
   /*min-width: 10px;*/
   /*width: 10px;*/

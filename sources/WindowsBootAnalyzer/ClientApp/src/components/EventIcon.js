@@ -18,13 +18,15 @@ export class EventIcon extends Component {
 
     render() {
 
+        let style={maxWidth: 20, maxHeight: 20, display: "inline-block"};
+        style={};
         let button = null;
         if (this.props.event.Action === "ServiceStarted")
-            button = <FontAwesomeIcon icon={faRunning}/>;
+            button = <FontAwesomeIcon style={style} icon={faRunning}/>;
         else if (this.props.event.Action === "ServiceStopped")
-            button = <FontAwesomeIcon icon={faStopCircle}/>;
+            button = <FontAwesomeIcon style={style} icon={faStopCircle}/>;
         else if (this.props.event.Action === "Boot")
-            button = <FontAwesomeIcon icon={faArrowAltCircleRight}/>;
+            button = <FontAwesomeIcon style={style} icon={faArrowAltCircleRight}/>;
         
         if (!this.props.event.IsInfo)
             button = <FontAwesomeIcon icon={faExclamationTriangle}/>;
