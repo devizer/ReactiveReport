@@ -1,8 +1,8 @@
 {
   "name": "Reactive Report",
   "short_name": "Reactive Report",
-  "theme_color": "rgba(33,150,243,0.93)",
-  "background_color": "#204a87ff",
+  "theme_color": "#204a87",
+  "background_color": "#204a87",
   "display": "standalone",
   "Scope": "/ReactiveReport",
   "start_url": "./?utm_source=web_app_manifest",

@@ -60,6 +60,9 @@
     <Compile Include="..\WindowsBootAnalyzer\WmiReader\ServiceLogsReader.cs">
       <Link>Links\ServiceLogsReader.cs</Link>
     </Compile>
+    <Compile Include="..\WindowsBootAnalyzer\WmiReader\ServicesPipeTimeoutReader.cs">
+      <Link>Links\ServicesPipeTimeoutReader.cs</Link>
+    </Compile>
     <Compile Include="..\WindowsBootAnalyzer\WmiReader\SimpleJsonReportWriter.cs">
       <Link>Links\SimpleJsonReportWriter.cs</Link>
     </Compile>

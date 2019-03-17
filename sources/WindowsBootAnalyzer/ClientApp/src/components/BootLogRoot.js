@@ -11,6 +11,9 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import { makeStyles } from '@material-ui/styles'; alpha-next
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
+
+
 import {BootAtButton} from "./BootAtButton";
 import BootLogStaticDataSource from '../Final-Report.json'
 import ErrorsOnlyStore from "./ErrorsOnlyStore";
@@ -207,6 +210,7 @@ export class BootLogRoot extends Component {
                 </MyExpansionPanel>
                 
                 <div style={{paddingTop: "12px", display: "flex", border: "1px solid transparent"}}>
+                    {/* List of the boots */}
                     <div className="chooseBootAt" style={{display: "block", flexGrow: 1, borderRight: "1px solid transparent", backgroundColor: "inherit", width: 160, minWidth: 160, maxWidth: 160}}>
                         {this.state.boots.map(boot =>
                             <BootAtButton key={boot.UniqueKey}
@@ -220,6 +224,7 @@ export class BootLogRoot extends Component {
                     </div>
                     
                     <div style={{flexGrow: 6}}>
+
                         {/* First event: Boot at */}
                         <div className={classNames("Event", "InfoEvent", {Hidden: !this.state.selectedBoot})}>
                             <EventIcon event={bootEvent}/>{' '}
@@ -237,6 +242,8 @@ export class BootLogRoot extends Component {
                                 <span dangerouslySetInnerHTML={{__html: ev.Message}}/>
                             </div>
                         )}
+
+
                     </div>
                 </div>
             </div>

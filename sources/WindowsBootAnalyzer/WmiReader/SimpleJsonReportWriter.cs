@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsBootAnalyzer.WmiReader;
 
 namespace WindowsBootInfo
 {
@@ -31,9 +32,9 @@ namespace WindowsBootInfo
             dynamic boots = a.BuildReport();
             LoggingUtils.DumpTextFile(((object)boots).AsJsonString(), "Grouped-by-Boots.json");
 
-
             var finalReport = new
             {
+                ServicesPipeTimeout = ServicesPipeTimeoutReader.Get(),
                 Processor = WmiUtils.FetchFromQuery("Select * From Win32_Processor"),
                 OS = WmiUtils.FetchFromQuery("Select * From Win32_OperatingSystem"),
                 // Status is OK?

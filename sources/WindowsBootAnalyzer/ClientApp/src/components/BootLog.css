@@ -191,3 +191,14 @@ body    {overflow-y:scroll;}
 }
 
 .Hidden { display: none}
+
+.example-appear {
+  opacity: 0.01; 
+  padding-top: 999px;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  padding-top: 0px;
+  transition: opacity,padding 1.5s ease-in;
+}

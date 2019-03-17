@@ -16,7 +16,10 @@
    version="1.1"
    id="svg4000"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="RR512.svg">
+   sodipodi:docname="RR512.svg"
+   inkscape:export-filename="V:\Cloud\ya\RR512.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
   <defs
      id="defs3994">
     <linearGradient
@@ -36,10 +39,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="126.23587"
-     inkscape:cy="203.31537"
+     inkscape:cx="509.86511"
+     inkscape:cy="214.67878"
      inkscape:document-units="px"
-     inkscape:current-layer="layer5"
+     inkscape:current-layer="layer3"
      showgrid="false"
      units="px"
      inkscape:pagecheckerboard="true"
@@ -80,18 +83,6 @@
        x="0"
        y="0"
        style="fill:#204a87;stroke-width:0.23231855" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:43.03886795px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#fffffc;fill-opacity:1;stroke:#000000;stroke-width:4.50559855;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="0"
-       y="108.17877"
-       id="text3726-3"
-       transform="scale(1.0655989,0.93843941)"><tspan
-         sodipodi:role="line"
-         id="tspan3724-3"
-         x="0"
-         y="108.17877"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:206.58656311px;font-family:'Sitka Text';-inkscape-font-specification:'Sitka Text';fill:#fffffc;fill-opacity:1;stroke:#000000;stroke-width:4.50559855;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">r</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -108,32 +99,61 @@
   <g
      inkscape:groupmode="layer"
      id="layer4"
-     inkscape:label="Вторая Белая буква" />
+     inkscape:label="Вторая Белая буква"
+     style="display:none" />
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="Белая буква">
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:34.23397827px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#e6e600;fill-opacity:1;stroke:#000000;stroke-width:3.58384323;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
-       x="52.765026"
-       y="137.92491"
-       id="text3726"
-       transform="scale(1.0655989,0.93843941)"><tspan
-         sodipodi:role="line"
-         id="tspan3724"
-         x="52.765026"
-         y="137.92491"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:164.3230896px;font-family:'Sitka Text';-inkscape-font-specification:'Sitka Text';fill:#e6e600;stroke:#000000;stroke-width:3.58384323;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1;">r</tspan></text>
+     inkscape:label="Белая буква"
+     style="display:inline">
+    <g
+       id="g844"
+       transform="translate(-13.418154,10.205357)">
+      <text
+         transform="scale(1.0655989,0.93843941)"
+         id="text3726-3"
+         y="108.40158"
+         x="17.680328"
+         style="font-style:normal;font-weight:normal;font-size:28.21246719px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#fffffc;fill-opacity:1;stroke:#f8f8f8;stroke-width:3.17499995;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:135.41984558px;font-family:'Sitka Text';-inkscape-font-specification:'Sitka Text Bold';fill:#fffffc;fill-opacity:1;stroke:#f8f8f8;stroke-width:3.17499995;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="108.40158"
+           x="17.680328"
+           id="tspan3724-3"
+           sodipodi:role="line">R</tspan></text>
+      <text
+         transform="scale(1.0655989,0.93843941)"
+         id="text3726"
+         y="108.40159"
+         x="17.680328"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:34.23397827px;line-height:1.25;font-family:'Sitka Text';-inkscape-font-specification:'Sitka Text Bold';letter-spacing:0px;word-spacing:0px;fill:#e6e600;fill-opacity:0.98039216;stroke:#000000;stroke-width:2.11666656;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:135.41984558px;font-family:'Sitka Text';-inkscape-font-specification:'Sitka Text Bold';fill:#e6e600;fill-opacity:0.98039216;stroke:#000000;stroke-width:2.11666656;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="108.40159"
+           x="17.680328"
+           id="tspan3724"
+           sodipodi:role="line">R</tspan></text>
+    </g>
     <flowRoot
        xml:space="preserve"
        id="flowRoot3728"
-       style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
          id="flowRegion3730"><rect
            id="rect3732"
            width="82.832512"
            height="59.598999"
            x="276.7818"
            y="87.735931" /></flowRegion><flowPara
-         id="flowPara3734"></flowPara></flowRoot>  </g>
+         id="flowPara3734" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:25.73592567px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#e7e705;fill-opacity:1;stroke:#000000;stroke-width:0.64339811;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="99.373291"
+       y="48.909695"
+       id="text848"><tspan
+         sodipodi:role="line"
+         id="tspan846"
+         x="99.373291"
+         y="48.909695"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:61.76622009px;font-family:'Sitka Text';-inkscape-font-specification:'Sitka Text';fill:#e7e705;fill-opacity:1;stroke:#000000;stroke-width:0.64339811;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">2</tspan></text>
+  </g>
 </svg>

@@ -24,6 +24,7 @@
                          "ponyfill-array":  "^0.1.0",
                          "ponyfill-array-find":  "^1.0.1",
                          "react":  "^16.8.4",
+                         "react-addons-css-transition-group":  "^15.6.2",
                          "react-dom":  "^16.8.4",
                          "react-moment":  "^0.8.4",
                          "react-router-bootstrap":  "^0.24.4",
