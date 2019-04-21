@@ -1,1 +1,1 @@
-call npm install --save linq-es2015 linq-es5 linq
+call npm install --save linq-es5 
