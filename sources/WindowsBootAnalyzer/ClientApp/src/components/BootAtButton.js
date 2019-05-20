@@ -17,13 +17,19 @@ export class BootAtButton extends Component {
 
     static themeOk = createMuiTheme({
         palette: {
-            primary: green,
+            // primary: green,
+            primary: {
+                main: '#004d40',
+            },
         },
     });
 
     static themeError = createMuiTheme({
         palette: {
-            primary: red,
+            // primary: red,
+            primary: {
+                main: '#b71c1c',
+            },
         },
     });
 
